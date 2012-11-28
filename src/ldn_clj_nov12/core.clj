@@ -20,4 +20,4 @@ x y
   (let [mapm (fn [f m] (into {} (for [[k v] m] [k (f v)])))]
     (->> (for [m maps [k v] m] [k v])
          (group-by first)
-         (mapm #(apply func (map last %))))))
+         (mapm #(reduce func (map last %))))))
